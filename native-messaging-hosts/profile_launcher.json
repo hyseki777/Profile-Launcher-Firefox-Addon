@@ -1,0 +1,7 @@
+{
+  "name": "profile_launcher",
+  "description": "Launch Firefox with selected profile",
+  "path": "/home/eliseo/Git/Profile_launcher/profile_launcher.py",
+  "type": "stdio",
+  "allowed_extensions": ["profile_launcher@hyseki.com"]
+}
