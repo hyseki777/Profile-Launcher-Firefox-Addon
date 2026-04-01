@@ -4,7 +4,7 @@
   "version": "1.0",
   "browser_specific_settings": {
     "gecko": {
-      "id": "profile_launcher@hyseki.com",
+      "id": "profile_launcherv1@hyseki.com",
       "data_collection_permissions": {
       "required": ["none"]
       }

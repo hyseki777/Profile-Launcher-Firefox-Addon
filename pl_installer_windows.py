@@ -26,7 +26,7 @@ manifest = {
     "description": "Launch firefox with selected profile",
     "path": f"{home}\\AppData\\Local\\profile_launcher\\profile_launcher{BROWSER_ID}.bat",
     "type": "stdio",
-    "allowed_extensions": ["profile_launcher@hyseki.com"]
+    "allowed_extensions": ["profile_launcherv1@hyseki.com"]
 }
 
 native_dir = f"{home}\\AppData\\Local\\profile_launcher"

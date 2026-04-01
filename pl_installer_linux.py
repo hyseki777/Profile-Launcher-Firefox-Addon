@@ -24,7 +24,7 @@ manifest = {
     "description": "Launch firefox with selected profile",
     "path": f"{home}/.local/share/applications/profile_launcher/profile_launcher{BROWSER_ID}.py",
     "type": "stdio",
-    "allowed_extensions": ["profile_launcher@hyseki.com"]
+    "allowed_extensions": ["profile_launcherv1@hyseki.com"]
 }
 
 native_dir = os.path.expanduser("~/.mozilla/native-messaging-hosts")
