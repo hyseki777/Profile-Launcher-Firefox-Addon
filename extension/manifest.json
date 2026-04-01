@@ -1,0 +1,27 @@
+{
+  "manifest_version": 2,
+  "name": "Profile Launcher",
+  "version": "1.0",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "profile_launcher@hyseki.com",
+      "data_collection_permissions": {
+      "required": ["none"]
+      }
+    }
+  },
+  "description": "List and launch Firefox profiles",
+  "icons": {"size24" :"icon.png"},
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png"
+    }
+  },
+  "icons": {
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": ["nativeMessaging", "storage"]
+  }

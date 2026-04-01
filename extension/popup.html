@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Profile Switcher</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Roboto, sans-serif;
+      margin: 0;
+      padding: 15px;
+      background: #666e71;
+      color: #333;
+      width: 250px;
+    }
+
+    h2 {
+      margin-top: 0;
+      font-size: 18px;
+      text-align: center;
+      color: white;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    button {
+      width: 100%;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 6px;
+      background: #424749;
+      color: white;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.1s ease;
+    }
+
+    button:hover {
+      background: #424749;
+      transform: scale(1.02);
+    }
+
+    button:active {
+      background: black;
+      transform: scale(0.98);
+    }
+
+    footer {
+      margin-top: 15px;
+      font-size: 12px;
+      text-align: center;
+      color: white;
+    }
+    .id-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .id-container label,
+    .id-container input {
+      display: block;
+      margin: 0 auto 10px auto;
+    }
+
+    .button-row {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .button-row button {
+      padding: 6px 12px;
+    } 
+    .toggle-container {
+      display: flex;
+      align-items: center;
+      margin-top: 15px;
+      gap: 10px; 
+      margin-top: 10px;
+    }
+    .toggle-container input {
+      margin-right: 8px;
+    }
+    #dynamicInput {
+      width: 125px;
+      padding: 4px;
+      font-size: 14px;
+    }
+
+  </style>
+</head>
+<div>
+  <h2>Profiles</h2>
+  <ul id="profiles"></ul>
+  <div id="toggleArea"></div>
+
+  <footer>Choose a profile to launch</footer>
+
+  <div class="id-container">
+    <label style="color:white" id="idLabel">Browser ID: </label>
+    <input type="text" id="idInput" placeholder="Type an ID">
+  </div>
+  <div class="button-row">
+    <button id="idResetButton">Reset</button>
+    <button id="idSetButton">Set ID</button>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
