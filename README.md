@@ -3,6 +3,8 @@ A simple Firefox addon that lets you open new instances of differents profiles e
 
 ![screen1](Screenshots/Screenshot1.png) ![screen2](Screenshots/Screenshot2.png)
 
+Addon Link: https://addons.mozilla.org/en-US/firefox/addon/profile-launcher/
+
 This addon connects to a python script through Firefox native-messaging since addons cant directly interact with the profiles.
 
 <br>IMPORTANT<br>
