@@ -1,7 +1,7 @@
 # Profile_Launcher_Firefox_Addon
 A simple Firefox addon that lets you open new instances of differents profiles easier, even from others browsers
 
-![screen1](Screenshots/Screenshot1.png) ![screen2](Screenshots/Screenshot2.png)
+![screen1](Screenshots/Screenshot1.png) ![screen2](Screenshots/Screenshot2.png) ![screen3](Screenshots/Screenshot3.png) ![screen4](Screenshots/Screenshot4.png)
 
 Addon Link: https://addons.mozilla.org/en-US/firefox/addon/profile-launcher/
 
