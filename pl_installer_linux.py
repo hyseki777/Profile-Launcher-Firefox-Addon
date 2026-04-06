@@ -49,8 +49,10 @@ with open(script, "w") as f:
         PROFILES_DIR = "~/.zen/"
     if BROWSER_DIR == "":
         BROWSER_DIR = "~/.local/share/applications/zen/zen"
+    PROF_LOCATION = os.path.join(PROFILES_DIR, "profiles.ini")
     f.write(f"PROFILES_DIR = os.path.expanduser(\"{PROFILES_DIR}\")\n")
     f.write(f"BROWSER_DIR = os.path.expanduser(\"{BROWSER_DIR}\")\n")
+    f.write(f"PROF_LOCATION = os.path.expanduser(\"{PROF_LOCATION}\")\n")
     f.write(s[1])
 
 os.chmod(script, 0o755)
@@ -82,6 +84,47 @@ def list_profiles():
     return profiles
 
 
+def rename_profile(pname, newpname):
+    file = ""
+    with open(PROF_LOCATION, "r") as f:
+        for line in f:
+            if line == ("Name=" + pname + "\n"):
+                line = "Name=" + newpname + "\n"
+            file += line
+    with open(PROF_LOCATION, "w") as f:
+        f.write(file)
+
+
+def delete_profile(pname, delFiles):
+    file = ""
+    del_location = ""
+    with open(PROF_LOCATION, "r") as f:
+        lines = f.readlines()
+        prevline = lines[0]
+        i = 1
+        while i < len(lines):
+            if lines[i] == "Name=" + pname + "\n":
+                while (
+                    i < len(lines)
+                    and not lines[i].startswith("[")
+                    and not lines[i].endswith("]\n")
+                ):
+                    if delFiles and lines[i].startswith("Path="):
+                        del_location = lines[i].split("=", maxsplit=1)[1][:-1]
+                    i += 1
+                prevline = lines[i - 1]
+                continue
+            else:
+                file += prevline
+                prevline = lines[i]
+            i += 1
+    with open(PROF_LOCATION, "w") as f:
+        f.write(file)
+    if delFiles:
+        subprocess.Popen(["rm", "-r", os.path.join(PROFILES_DIR, del_location)])
+
+
+
 def read_message():
     raw_length = sys.stdin.buffer.read(4)
     if len(raw_length) == 0:
@@ -105,6 +148,9 @@ if msg:
     elif msg.get("command") == "launch":
         profile = msg.get("profile")
         subprocess.Popen([BROWSER_DIR, "-P", profile])
-    elif msg.get("command") == "create":
-        profile = msg.get("profile")
-        subprocess.Popen([BROWSER_DIR, "-CreateProfile", profile])
+    elif msg.get("command") == "Create":
+        subprocess.Popen([BROWSER_DIR, "-CreateProfile", msg.get("profile")])
+    elif msg.get("command") == "Rename":
+        rename_profile(msg.get("profile"), msg.get("newProfile"))
+    elif msg.get("command") == "Delete":
+        delete_profile(msg.get("profile"), msg.get("deleteFiles"))
